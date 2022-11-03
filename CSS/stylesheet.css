@@ -1,28 +1,28 @@
 body {
-    background: white;
+    background: rgb(0, 0, 0);
   }
   h1 {
     font-weight: bold;
-    color: #3c61b6;
+    color: #ffffff;
     font-family: cursive;
     text-align: center;
   }
   h2 {
     font-weight: bold;
-    color: black;
+    color: rgb(255, 255, 255);
     font-family: cursive;
     text-align: center;
   }
   p {
     font-weight: bold;
-    color: black;
+    color: rgb(255, 255, 255);
     font-family: cursive;
     font-style: italic;
     text-align: center;
   }
   button {
     font-weight: bold;
-    color: #132011;
+    color: #000000;
     font-family: cursive;
     font-style: italic;
     background: #2dcc2d;
