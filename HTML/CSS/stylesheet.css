@@ -1,18 +1,21 @@
 body {
   background: white;
 }
+
 h1 {
   font-weight: bold;
   color: #3c61b6;
   font-family: cursive;
   text-align: center;
 }
+
 h2 {
   font-weight: bold;
   color: black;
   font-family: cursive;
   text-align: center;
 }
+
 p {
   font-weight: bold;
   color: black;
@@ -20,6 +23,7 @@ p {
   font-style: italic;
   text-align: center;
 }
+
 button {
   font-weight: bold;
   color: #132011;
