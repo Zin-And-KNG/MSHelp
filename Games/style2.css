@@ -12,16 +12,11 @@
     font-size: 3rem;
     opacity: 0.8;
   }
+  p,
   h2 {
     color: #658ec6;
     font-weight: 500;
     opacity: 0.8;
-  }
-  p {
-    color: #658ec6;
-    font-weight: 500;
-    opacity: 0.8;
-    text-align: center;
   }
   
   h3 {
