@@ -4,3 +4,6 @@ document.addEventListener('keydown', (event) => {
     // Alert the key name and key code on keydown
     alert(`Key pressed ${name} \r\n Key code value: ${code}`);
   }, false);
+  function myFunction(x) {
+    x.classList.toggle("change");
+  }
