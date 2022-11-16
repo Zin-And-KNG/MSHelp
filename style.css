@@ -27,7 +27,6 @@
     font-weight: 600;
     opacity: 0.8;
   }
-  .container,
   main {
     font-family: "Poppins", sans-serif;
     min-height: 100vh;
@@ -199,11 +198,7 @@ a{
 .bar1, .bar2, .bar3 {
   width: 35px;
   height: 5px;
-  background: linear-gradient(
-      to right bottom,
-      rgba(255, 255, 255, 0.8),
-      rgba(255, 255, 255, 0.3)
-    );
+  background-color: #65dfc9;
   margin: 6px 0;
   transition: 0.4s;
 }
