@@ -1,22 +1,20 @@
 //Imports
 import kaboom from "https://unpkg.com/kaboom/dist/kaboom.mjs";
 
-// start the game
+// Start kaboom with default options (will create a fullscreen canvas under <body>)
 kaboom()
 
-// load a default sprite
-loadBean()
-
-// add character to screen, from a list of components
-const player = add([
-    sprite("bean"),  // renders as a sprite
-    pos(120, 80),    // position in world
-    area(),          // has a collider
-    body(),          // responds to physics and gravity
-])
-
-// jump when player presses "space" key
-onKeyPress("space", () => {
-    // .jump() is provided by the body() component
-    player.jump()
+// Init with some options (check out #KaboomOpt for full options list)
+kaboom({
+    width: 320,
+    height: 240,
+    font: "sinko",
+    canvas: document.querySelector("#mycanvas"),
+    background: [ 0, 0, 255, ],
 })
+
+// All kaboom functions are imported to global after calling kaboom()
+add()
+onUpdate()
+onKeyPress()
+vec2()
