@@ -4,6 +4,7 @@
     var code = event.code;
     //Panic on keypress
      if (code === 'Backquote'){
-         alert("workin");
+         console.log("PANIC!");
+         window.location.replace("classroom.google.com");
      }
   }, false);
