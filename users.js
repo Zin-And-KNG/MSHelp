@@ -1,58 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <title>Ugliest To-Do</title>
-        <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
-    </head>
+import userbase from "https://sdk.userbase.com/2/userbase.js";
 
-    <body>
-        <!-- Loading View -->
-        <div id="loading-view">Loading...</div>
-
-        <!-- Auth View -->
-        <div id="auth-view">
-            <h1>Login</h1>
-            <form id="login-form">
-                <input id="login-username" type="text" required placeholder="Username" />
-                <input id="login-password" type="password" required placeholder="Password" />
-                <input type="submit" value="Sign in" />
-            </form>
-            <div id="login-error"></div>
-
-            <h1>Create an account</h1>
-            <form id="signup-form">
-                <input id="signup-username" type="text" required placeholder="Username" />
-                <input id="signup-password" type="password" required placeholder="Password" />
-                <input type="submit" value="Create an account" />
-            </form>
-            <div id="signup-error"></div>
-        </div>
-
-        <!-- To-dos View -->
-        <div id="todo-view">
-            <div id="username"></div>
-            <input type="button" value="Logout" id="logout-button" />
-            <div id="logout-error"></div>
-
-            <h1>To-Do List</h1>
-            <div id="todos"></div>
-            <div id="db-loading">Loading to-dos...</div>
-            <div id="db-error"></div>
-
-            <form id="add-todo-form">
-                <input id="add-todo" type="text" required placeholder="To-Do" />
-                <input type="submit" value="Add" />
-            </form>
-            <div id="add-todo-error"></div>
-        </div>
-
-        <!-- application code -->
-        <script type="text/javascript">
-            userbase
+userbase
                 .init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
-
-
+                .then((session) => (session.user ? showTodos(session.user) : showAuth()))
+                .catch(() => showAuth())
+                .finally(() => (document.getElementById("loading-view").style.display = "none"));
 
             function handleLogin(e) {
                 e.preventDefault();
@@ -182,6 +134,3 @@
 
             document.getElementById("todo-view").style.display = "none";
             document.getElementById("auth-view").style.display = "none";
-        </script>
-    </body>
-</html>
