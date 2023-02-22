@@ -10,15 +10,12 @@ function handleLogin(e) {
 
     userbase
         .signIn({ username, password, rememberMe: "local" })
-        .then((user) => showTodos(user))
+        .then(showOtherThings())
         .catch((e) => (document.getElementById("login-error").innerHTML = e));
 }
 function handleLogout() {
     userbase.signOut()
 }
-function showAuth() {
-    document.getElementById("auth-view").style.display = "block";
-    document.getElementById("login-username").value = "";
-    document.getElementById("login-password").value = "";
-    document.getElementById("login-error").innerText = "";
-}
+
+document.getElementById("login-form").addEventListener("submit", handleLogin);
+document.getElementById("logout-button").addEventListener("click", handleLogout);
