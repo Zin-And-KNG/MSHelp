@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+    </head>
+    
+    <body>
+        <div id="auth-view">
+        <h1>Login</h1>
+        <form id="login-form">
+            <input id="login-username" type="text" required placeholder="Username" />
+            <input id="login-password" type="password" required placeholder="Password" />
+            <input type="submit" value="Sign in" />
+        </form>
+        <input type="button" value="Logout" id="logout-button">
+        </div>
+        <div id="user-name-welcome"></div>
+        <script>
+userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
+    .then((session) => {
+    // SDK initialized successfully
+
+        if (session.user) {
+            // there is a valid active session
+            alert("Welcome back " + session.user.username + "!");
+            window.location.replace("https://help.mshelp.tk/friendsonly/afterauth")
+
+        }
+    })
+    .catch((e) => console.error(e))
+
+function handleLogin(e) {
+    e.preventDefault();
+
+    const username = document.getElementById("login-username").value;
+    const password = document.getElementById("login-password").value;
+
+    userbase
+        .signIn({ username, password, rememberMe: "local" })
+        .catch((e) => (document.getElementById("login-error").innerHTML = e));
+}
+function handleLogout() {
+    userbase.signOut()
+}
+
+document.getElementById("login-form").addEventListener("submit", handleLogin);
+document.getElementById("logout-button").addEventListener("click", handleLogout);
+
+        </script>
+    </body>
+</html>
