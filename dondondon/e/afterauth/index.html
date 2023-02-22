@@ -10,7 +10,7 @@ userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
     .then((session) => {
     // SDK initialized successfully
 
-        if (session.user) {
+        if (session.user != null) {
 
         }else{
             alert("You are not logged in!")
