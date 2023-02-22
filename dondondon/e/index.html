@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head></head>
+    <head>
         <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
     </head>
     
@@ -22,6 +22,7 @@ userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
         if (session.user) {
             // there is a valid active session
             alert("Welcome back " + session.user.username + "!");
+
         }
     })
     .catch((e) => console.error(e))
