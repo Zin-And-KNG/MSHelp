@@ -17,12 +17,8 @@ function handleLogout() {
     userbase.signOut()
 }
 function showAuth() {
-    document.getElementById("todo-view").style.display = "none";
     document.getElementById("auth-view").style.display = "block";
     document.getElementById("login-username").value = "";
     document.getElementById("login-password").value = "";
     document.getElementById("login-error").innerText = "";
-    document.getElementById("signup-username").value = "";
-    document.getElementById("signup-password").value = "";
-    document.getElementById("signup-error").innerText = "";
 }
