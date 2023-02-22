@@ -12,6 +12,7 @@
             <input id="login-password" type="password" required placeholder="Password" />
             <input type="submit" value="Sign in" />
         </form>
+        <input type="button" value="Logout" id="logout-button">
         </div>
         <div id="user-name-welcome"></div>
         <script>
@@ -43,6 +44,7 @@ function handleLogout() {
 
 document.getElementById("login-form").addEventListener("submit", handleLogin);
 document.getElementById("logout-button").addEventListener("click", handleLogout);
+
         </script>
     </body>
 </html>
