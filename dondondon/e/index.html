@@ -13,8 +13,18 @@
             <input type="submit" value="Sign in" />
         </form>
         </div>
+        <div id="user-name-welcome"></div>
         <script>
-userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" });
+userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
+    .then((session) => {
+    // SDK initialized successfully
+
+        if (session.user) {
+            // there is a valid active session
+            alert("Welcome back " + session.user.username + "!");
+        }
+    })
+    .catch((e) => console.error(e))
 
 function handleLogin(e) {
     e.preventDefault();
