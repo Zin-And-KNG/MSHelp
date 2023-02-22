@@ -40,12 +40,13 @@ function handleLogin(e) {
 
     userbase
         .signIn({ username, password, rememberMe: "local" })
+        .then(() => loggedIn())
         .catch((e) => (document.getElementById("login-error").innerHTML = e));
     
 }
 function handleLogout() {
-    userbase.signOut()
-    loggedOut
+    userbase.signOut();
+    loggedOut();
 }
     function loggedIn(){
         document.getElementById("auth-view").style.display = 'none'
