@@ -16,6 +16,7 @@
         <div id="link">
             <a href="afterauth/">Go to Private Page</a>
             <input type="button" value="Logout" id="logout-button">
+            <div id="username"></div>
         </div>
         <script>
 userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
@@ -24,7 +25,7 @@ userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
 
         if (session.user) {
             // there is a valid active session
-            alert("Welcome back " + session.user.username + "!");
+            
             loggedIn();
         }else{ 
             loggedOut();
@@ -51,6 +52,7 @@ function handleLogout() {
     function loggedIn(){
         document.getElementById("auth-view").style.display = 'none'
         document.getElementById("link").style.display = 'block'
+        document.getElementById('username').innerHTML = "Welcome back " + user.username + "!"
     }
     function loggedOut() {
         document.getElementById("auth-view").style.display = 'block'

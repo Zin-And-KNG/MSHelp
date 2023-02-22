@@ -5,7 +5,19 @@
 </head>
 <body>
   <script>
-    userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" });
+    userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
+    .then((session) => {
+    // SDK initialized successfully
+
+        if (session.user) {
+            // there is a valid active session
+            document.getElementById("auth-view").style.display = 'none'
+            
+        }else{ 
+
+        }
+    })
+    .catch((e) => console.error(e));
 
       function handleSignUp(e) {
           e.preventDefault();
@@ -28,5 +40,5 @@
           <input type="submit" value="Create an account">
         </form>
         <div id="signup-error"></div>
-      </div>
+    </div>
 </body>
