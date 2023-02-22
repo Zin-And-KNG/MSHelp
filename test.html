@@ -7,6 +7,8 @@
 </head>
 
 <body>
+      <!-- Loading View -->
+  <div id="loading-view">Loading...</div>
     <div id="auth-view">
         <h1>Login</h1>
         <form id="login-form">
@@ -45,11 +47,17 @@
     <script type="text/javascript">
         userbase.init({ appId: '04df42d1-d27a-4022-a89d-c0cceabb8765' })
 
+            .then((session) => session.user ? showTodos(session.user.username) : showAuth())
+            .catch(() => showAuth())
+            .finally(() => document.getElementById('loading-view').style.display = 'none')
+
         function handleLogin(e) {
         e.preventDefault()
         
         const username = document.getElementById('login-username').value
         const password = document.getElementById('login-password').value
+
+        userbase.signIn({ username, password, rememberMe: 'local' })
 
         userbase.signIn({ username, password, rememberMe: 'none' })
         .then((user) => showTodos(user.username))
@@ -86,6 +94,17 @@
   userbase.openDatabase({ databaseName: 'todos', changeHandler })
     .catch((e) => document.getElementById('db-error').innerText = e)
 }
+
+function showAuth() {
+    document.getElementById('todo-view').style.display = 'none'
+    document.getElementById('auth-view').style.display = 'block'
+    document.getElementById('login-username').value = ''
+    document.getElementById('login-password').value = ''
+    document.getElementById('login-error').innerText = ''
+    document.getElementById('signup-username').value = ''
+    document.getElementById('signup-password').value = ''
+    document.getElementById('signup-error').innerText = ''
+  }
 
 function changeHandler(items) {
   document.getElementById('db-loading').style.display = 'none'
@@ -151,7 +170,10 @@ function addTodoHandler(e) {
 document.getElementById('login-form').addEventListener('submit', handleLogin)
 document.getElementById('signup-form').addEventListener('submit', handleSignUp)
 document.getElementById('add-todo-form').addEventListener('submit', addTodoHandler)
+document.getElementById('logout-button').addEventListener('click', handleLogout)
+
 document.getElementById('todo-view').style.display = 'none'
+
 
     </script>
 </body>
