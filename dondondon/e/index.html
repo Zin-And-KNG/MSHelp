@@ -34,7 +34,6 @@ function handleLogin(e) {
 
     userbase
         .signIn({ username, password, rememberMe: "local" })
-        .then(showOtherThings())
         .catch((e) => (document.getElementById("login-error").innerHTML = e));
 }
 function handleLogout() {
