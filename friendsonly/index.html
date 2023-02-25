@@ -2,6 +2,7 @@
 <html>
     <head>
         <script type="text/javascript" src="https://sdk.userbase.com/2/userbase.js"></script>
+        <script src="/panic.js"></script>
     </head>
     
     <body>
@@ -18,6 +19,7 @@
             <input type="button" value="Logout" id="logout-button">
             <div id="username"></div>
         </div>
+        <a href="/">Home</a>
         <script>
 userbase.init({ appId: "04df42d1-d27a-4022-a89d-c0cceabb8765" })
     .then((session) => {
